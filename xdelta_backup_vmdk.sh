@@ -14,17 +14,17 @@ vmrun -T ws deleteSnapshot "$VMS/$VM".vmx bak
 
 
 function fullbackup() {
-#mkshapshot
+mkshapshot
 rsync -a "$VMS/$VM".vmdk $TARGET/
-#rmshapshot
+rmshapshot
 exit
 }
 
 
 function difbackup() {
-#mkshapshot
+mkshapshot
 xdelta delta -V "$TARGET/$VM".vmdk "$VMS/$VM".vmdk "$VM"_$(date +%Y%m%d).xdelta
-#rmshapshot
+rmshapshot
 exit
 }
 
