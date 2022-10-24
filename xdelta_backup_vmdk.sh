@@ -23,10 +23,11 @@ exit
 
 function difbackup() {
 mkshapshot
-xdelta delta -V "$TARGET/$VM".vmdk "$VMS/$VM".vmdk "$VM"_$(date +%Y%m%d).xdelta
+xdelta3 -s "$TARGET/$VM.vmdk" "$VMS/$VM.vmdk" "$VM"_$(date +%Y%m%d).xdelta
 rmshapshot
 exit
 }
+
 
 
 [ -f "$TARGET/$VM".vmdk ] && difbackup 
