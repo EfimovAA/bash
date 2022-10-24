@@ -28,6 +28,10 @@ rmshapshot
 exit
 }
 
+function difrestore() {
+vmrun -T ws stop "$VMS/$VM.vmx"
+xdelta3 -f -d -s  "$TARGET/$VM.vmdk" "$VM.vmdk.xdelta" "$VMS/$VM.vmdk"
+}
 
 
 [ -f "$TARGET/$VM".vmdk ] && difbackup 
